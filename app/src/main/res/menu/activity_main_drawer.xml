@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/nav_motion"
+            android:icon="@drawable/ic_motion"
+            android:title="Motion"/>
+        <item
+            android:id="@+id/nav_style"
+            android:icon="@drawable/ic_style"
+            android:title="Style"/>
+        <item
+            android:id="@+id/nav_layout"
+            android:icon="@drawable/ic_layout"
+            android:title="Layout"/>
+        <item
+            android:id="@+id/nav_component"
+            android:icon="@drawable/ic_component"
+            android:title="Component"/>
+    </group>
+</menu>
