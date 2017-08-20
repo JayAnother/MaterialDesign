@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+    >
+
+    <ImageView
+        android:id="@+id/avd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/animvectordrawable" />
+
+    <CheckBox
+        android:id="@+id/heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/avd"
+
+        android:background="@null"
+        android:button="@drawable/heartstateanim" />
+
+    <CheckBox
+        android:id="@+id/example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@null"
+        android:button="@drawable/animstatedrawable" />
+
+
+    <ImageView
+        android:id="@+id/ball"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:src="@mipmap/ball2"
+        android:stateListAnimator="@anim/statechangeanim" />
+
+
+    <Button
+        android:id="@+id/p1"
+        android:transitionName="p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="p1" />
+
+    <Button
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/p1"
+        android:layout_marginTop="2dp"
+        android:text="p2" />
+
+    <Button
+        android:id="@+id/p3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/p1"
+
+        android:text="p3" />
+
+    <Button
+        android:id="@+id/p4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/p3"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/p2"
+        android:text="p4" />
+
+</RelativeLayout>

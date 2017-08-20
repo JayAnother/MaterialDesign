@@ -1,4 +1,4 @@
-package org.jay.materialdesign.materialdesign.behavior;
+package org.jay.materialdesign.materialdesign.CoordinatorLayout.behavior;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
