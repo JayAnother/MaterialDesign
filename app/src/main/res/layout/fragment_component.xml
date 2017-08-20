@@ -1,16 +1,26 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="org.jay.materialdesign.ComponentFragment">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="org.jay.materialdesign.materialdesign.ComponentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv"
-        android:gravity="center"
-        android:textSize="22sp"
+    <Button
+        android:id="@+id/btn01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ComponentFragment"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="效果一"
+        android:textSize="22sp"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="效果二"
+        android:textSize="22sp"/>
+
+</LinearLayout>

@@ -15,6 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.jay.materialdesign.contraintlayout.ConstraintFragment;
+import org.jay.materialdesign.materialdesign.ComponentFragment;
+import org.jay.materialdesign.materialdesign.LayoutFragment;
+import org.jay.materialdesign.materialdesign.MotionFragment;
+import org.jay.materialdesign.materialdesign.StyleFragment;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,10 +40,12 @@ public class MainActivity extends AppCompatActivity
     private StyleFragment mStyleFragment;
     private LayoutFragment mLayoutFragment;
     private ComponentFragment mComponentFragment;
+    private ConstraintFragment mConstraintFragment;
     public final static String FRAGMENT_TAG_MOTION = "MotionFragment";
     public final static String FRAGMENT_TAG_STYLE = "StyleFragment";
     public final static String FRAGMENT_TAG_LAYOUT = "LayoutFragment";
     public final static String FRAGMENT_TAG_COMPONENT = "ComponentFragment";
+    public final static String FRAGMENT_TAG_CONSTRAINST = "ConstraintFragment";
     private String mCurrentFragmentTag = "";
 
     @Override
@@ -49,8 +57,10 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         initView(toolbar);
-        initDate();
+        switchFragment(FRAGMENT_TAG_MOTION);
+        mNavView.setCheckedItem(R.id.nav_motion);
     }
+
     public void hideAllFragment(FragmentTransaction fragmentTransaction) {
         if (mMotionFragment != null && !FRAGMENT_TAG_MOTION.equals(mCurrentFragmentTag)) {
             fragmentTransaction.hide(mMotionFragment);
@@ -64,7 +74,11 @@ public class MainActivity extends AppCompatActivity
         if (mComponentFragment != null && !FRAGMENT_TAG_COMPONENT.equals(mCurrentFragmentTag)) {
             fragmentTransaction.hide(mComponentFragment);
         }
+        if (mConstraintFragment != null && !FRAGMENT_TAG_CONSTRAINST.equals(mCurrentFragmentTag)) {
+            fragmentTransaction.hide(mConstraintFragment);
+        }
     }
+
     public void switchFragment(String fragmentTag) {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -94,6 +108,12 @@ public class MainActivity extends AppCompatActivity
                 }
                 fragment = mComponentFragment;
                 break;
+            case FRAGMENT_TAG_CONSTRAINST:
+                if (mConstraintFragment == null) {
+                    mConstraintFragment = new ConstraintFragment();
+                }
+                fragment = mConstraintFragment;
+                break;
         }
 //        //切换动画
 //        if (animType == AnimationUtil.TYPE_PAGE_IN) {
@@ -110,14 +130,6 @@ public class MainActivity extends AppCompatActivity
         mCurrentFragmentTag = fragmentTag;
         transaction.commitAllowingStateLoss();
         hideAllFragment(transaction);
-    }
-
-    private void initDate() {
-        initFragment();
-    }
-
-    private void initFragment() {
-
     }
 
     private void initView(Toolbar toolbar) {
@@ -146,29 +158,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -184,6 +174,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_component:
                 switchFragment(FRAGMENT_TAG_COMPONENT);
+                break;
+            case R.id.nav_constraint:
+                switchFragment(FRAGMENT_TAG_CONSTRAINST);
                 break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);

@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorActivity21">
+        </activity>
+        <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorActivity22">
+        </activity>
     </application>
 
 </manifest>

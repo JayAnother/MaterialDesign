@@ -1,4 +1,4 @@
-package org.jay.materialdesign;
+package org.jay.materialdesign.materialdesign;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.jay.materialdesign.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
