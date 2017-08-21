@@ -1,21 +1,22 @@
 package org.jay.materialdesign.materialdesign;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 
+import org.jay.materialdesign.MainActivity;
 import org.jay.materialdesign.R;
-import org.jay.materialdesign.materialdesign.CoordinatorLayout.CoordinatorActivity21;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity1;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity2;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity3;
@@ -35,11 +36,17 @@ public class MotionFragment extends Fragment {
     Button mBtn2;
     @BindView(R.id.btn3)
     Button mBtn3;
+    private MainActivity mMainActivity;
 
     public MotionFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mMainActivity = (MainActivity) context;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +63,9 @@ public class MotionFragment extends Fragment {
         getActivity().getWindow().setReenterTransition(new Slide().setDuration(3000));
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_motion, container, false);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        mMainActivity.setSupportActionBar(toolbar);
+        mMainActivity.iniToolbar(toolbar);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }

@@ -1,4 +1,4 @@
-package org.jay.materialdesign.materialdesign;
+package org.jay.materialdesign.contraintlayout;
 
 
 import android.os.Bundle;
@@ -6,23 +6,30 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import org.jay.materialdesign.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LayoutFragment extends Fragment {
+public class ConstraintFragment3 extends Fragment {
 
 
-
+    @BindView(R.id.textView3)
+    TextView mTextView3;
     Unbinder unbinder;
+    @BindView(R.id.button)
+    Button mButton;
 
-    public LayoutFragment() {
+    public ConstraintFragment3() {
         // Required empty public constructor
     }
 
@@ -31,7 +38,7 @@ public class LayoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_constraint3, container, false);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -40,5 +47,15 @@ public class LayoutFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+//    @OnClick(R.id.textView3)
+//    public void onViewClicked() {
+//        mTextView3.setVisibility(View.GONE);
+//    }
+
+    @OnClick(R.id.button)
+    public void onViewClicked() {
+        mButton.setVisibility(View.GONE);
     }
 }

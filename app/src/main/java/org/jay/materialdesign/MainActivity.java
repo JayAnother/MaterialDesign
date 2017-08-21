@@ -1,9 +1,7 @@
 package org.jay.materialdesign;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -11,11 +9,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import org.jay.materialdesign.contraintlayout.ConstraintFragment;
+import org.jay.materialdesign.contraintlayout.ConstraintFragment3;
 import org.jay.materialdesign.materialdesign.ComponentFragment;
 import org.jay.materialdesign.materialdesign.LayoutFragment;
 import org.jay.materialdesign.materialdesign.MotionFragment;
@@ -29,8 +25,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.fab)
-    FloatingActionButton mFab;
+//    @BindView(R.id.fab)
+//    FloatingActionButton mFab;
     @BindView(R.id.nav_view)
     NavigationView mNavView;
     @BindView(R.id.drawer_layout)
@@ -40,7 +36,8 @@ public class MainActivity extends AppCompatActivity
     private StyleFragment mStyleFragment;
     private LayoutFragment mLayoutFragment;
     private ComponentFragment mComponentFragment;
-    private ConstraintFragment mConstraintFragment;
+//    private ConstraintFragment mConstraintFragment;
+    private ConstraintFragment3 mConstraintFragment;
     public final static String FRAGMENT_TAG_MOTION = "MotionFragment";
     public final static String FRAGMENT_TAG_STYLE = "StyleFragment";
     public final static String FRAGMENT_TAG_LAYOUT = "LayoutFragment";
@@ -53,10 +50,10 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
-        initView(toolbar);
+//        iniToolbar(toolbar);
         switchFragment(FRAGMENT_TAG_MOTION);
         mNavView.setCheckedItem(R.id.nav_motion);
     }
@@ -110,7 +107,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case FRAGMENT_TAG_CONSTRAINST:
                 if (mConstraintFragment == null) {
-                    mConstraintFragment = new ConstraintFragment();
+                    mConstraintFragment = new ConstraintFragment3();
                 }
                 fragment = mConstraintFragment;
                 break;
@@ -132,14 +129,14 @@ public class MainActivity extends AppCompatActivity
         hideAllFragment(transaction);
     }
 
-    private void initView(Toolbar toolbar) {
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    public void iniToolbar(Toolbar toolbar) {
+//        mFab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
