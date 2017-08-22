@@ -1,13 +1,16 @@
 package org.jay.materialdesign.materialdesign;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.jay.materialdesign.MainActivity;
 import org.jay.materialdesign.R;
 import org.jay.materialdesign.materialdesign.CoordinatorLayout.CoordinatorActivity21;
 import org.jay.materialdesign.materialdesign.CoordinatorLayout.CoordinatorActivity22;
@@ -26,6 +29,15 @@ public class ComponentFragment extends Fragment {
     Button mBtn01;
     @BindView(R.id.btn02)
     Button mBtn02;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    private MainActivity mMainActivity;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mMainActivity = (MainActivity) context;
+    }
 
     public ComponentFragment() {
         // Required empty public constructor
@@ -42,6 +54,7 @@ public class ComponentFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_component, container, false);
         unbinder = ButterKnife.bind(this, view);
+        mMainActivity.iniToolbar(mToolbar);
         return view;
     }
 
