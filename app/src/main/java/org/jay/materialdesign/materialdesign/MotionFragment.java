@@ -20,6 +20,7 @@ import org.jay.materialdesign.R;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity1;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity2;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity3;
+import org.jay.materialdesign.materialdesign.animation.AnimationActivity4;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,7 +77,7 @@ public class MotionFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -89,6 +90,10 @@ public class MotionFragment extends Fragment {
                 break;
             case R.id.btn3:
                 startActivity(new Intent(getActivity(), AnimationActivity3.class));
+
+                break;
+            case R.id.btn4:
+                startActivity(new Intent(getActivity(), AnimationActivity4.class));
 
                 break;
         }

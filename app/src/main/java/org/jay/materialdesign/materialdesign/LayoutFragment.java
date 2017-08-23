@@ -3,6 +3,7 @@ package org.jay.materialdesign.materialdesign;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -44,6 +45,8 @@ public class LayoutFragment extends Fragment {
     @BindView(R.id.fab)
     FloatingActionButton mFab;
     private MainActivity mMainActivity;
+    private List<String> mFragmentTitleList = new ArrayList<>();
+    private List<Fragment> mFragmentList = new ArrayList<>();
 
     public LayoutFragment() {
         // Required empty public constructor
@@ -56,6 +59,14 @@ public class LayoutFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initFragment(new ListContentFragment(), "List");
+        initFragment(new TileContentFragment(), "Tile");
+        initFragment(new CardContentFragment(), "Card");
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -63,9 +74,12 @@ public class LayoutFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
         mMainActivity.iniToolbar(mToolbar);
         setupViewPager(mViewpager);
-        mTabs.setupWithViewPager(mViewpager);
-
         return view;
+    }
+
+    public void initFragment(Fragment fragment, String title) {
+        mFragmentList.add(fragment);
+        mFragmentTitleList.add(title);
     }
 
     @Override
@@ -77,16 +91,13 @@ public class LayoutFragment extends Fragment {
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new ListContentFragment(), "List");
-        adapter.addFragment(new TileContentFragment(), "Tile");
-        adapter.addFragment(new CardContentFragment(), "Card");
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(mFragmentList.size());
+        mTabs.setupWithViewPager(mViewpager);
     }
 
 
-    static class Adapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
+     class Adapter extends FragmentPagerAdapter {
 
         public Adapter(FragmentManager manager) {
             super(manager);
@@ -102,14 +113,12 @@ public class LayoutFragment extends Fragment {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
 
         @Override
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+
+
     }
 }

@@ -30,6 +30,8 @@
         <activity android:name=".materialdesign.animation.AnimationActivity3">
         </activity>
         <activity android:name=".materialdesign.CoordinatorLayout.DetailActivity"/>
+        <activity android:name=".materialdesign.animation.AnimationActivity4">
+        </activity>
     </application>
 
 </manifest>

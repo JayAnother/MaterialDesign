@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-//    @BindView(R.id.fab)
+    //    @BindView(R.id.fab)
 //    FloatingActionButton mFab;
     @BindView(R.id.nav_view)
     NavigationView mNavView;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     private StyleFragment mStyleFragment;
     private LayoutFragment mLayoutFragment;
     private ComponentFragment mComponentFragment;
-//    private ConstraintFragment mConstraintFragment;
+    //    private ConstraintFragment mConstraintFragment;
     private ConstraintFragment3 mConstraintFragment;
     public final static String FRAGMENT_TAG_MOTION = "MotionFragment";
     public final static String FRAGMENT_TAG_STYLE = "StyleFragment";
@@ -176,7 +176,6 @@ public class MainActivity extends AppCompatActivity
                 switchFragment(FRAGMENT_TAG_CONSTRAINST);
                 break;
         }
-        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }
