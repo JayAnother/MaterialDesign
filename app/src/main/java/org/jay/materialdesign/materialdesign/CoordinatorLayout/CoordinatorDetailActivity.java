@@ -18,14 +18,21 @@ package org.jay.materialdesign.materialdesign.CoordinatorLayout;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.jay.materialdesign.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Provides UI for the Detail page with Collapsing Toolbar.
@@ -33,30 +40,38 @@ import org.jay.materialdesign.R;
 public class CoordinatorDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "position";
+    @BindView(R.id.cb01)
+    CheckBox mCb01;
+    @BindView(R.id.cb02)
+    CheckBox mCb02;
+    @BindView(R.id.cb03)
+    CheckBox mCb03;
+    @BindView(R.id.cb04)
+    CheckBox mCb04;
+    private CollapsingToolbarLayout mCollapsingToolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        ButterKnife.bind(this);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set Collapsing Toolbar layout to the screen
-        CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        mCollapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         // Set title of Detail page
         // collapsingToolbar.setTitle(getString(R.string.item_title));
-
         int postion = getIntent().getIntExtra(EXTRA_POSITION, 0);
         Resources resources = getResources();
         String[] places = resources.getStringArray(R.array.places);
-        collapsingToolbar.setTitle(places[postion % places.length]);
+        mCollapsingToolbar.setTitle(places[postion % places.length]);
 
         String[] placeDetails = resources.getStringArray(R.array.place_details);
         TextView placeDetail = (TextView) findViewById(R.id.place_detail);
         placeDetail.setText(placeDetails[postion % placeDetails.length]);
 
         String[] placeLocations = resources.getStringArray(R.array.place_locations);
-        TextView placeLocation =  (TextView) findViewById(R.id.place_location);
+        TextView placeLocation = (TextView) findViewById(R.id.place_location);
         placeLocation.setText(placeLocations[postion % placeLocations.length]);
 
         TypedArray placePictures = resources.obtainTypedArray(R.array.places_picture);
@@ -64,5 +79,52 @@ public class CoordinatorDetailActivity extends AppCompatActivity {
         placePicutre.setImageDrawable(placePictures.getDrawable(postion % placePictures.length()));
 
         placePictures.recycle();
+
+        initCheckBox();
+    }
+
+    private void initCheckBox() {
+        mCb01.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    mCollapsingToolbar.setTitle("Title");
+                }
+            }
+        });
+        mCb02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    mCollapsingToolbar.setContentScrimColor(Color.RED);
+
+                }
+            }
+        });
+        mCb03.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    mCollapsingToolbar.setStatusBarScrimColor(Color.YELLOW);
+
+                }
+            }
+        });
+        mCb04.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    mCollapsingToolbar.setCollapsedTitleTextColor(Color.GREEN);
+                }
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 }
