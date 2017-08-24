@@ -36,7 +36,9 @@ import org.jay.materialdesign.R;
 /**
  * Provides UI for the view with Tile.
  */
-public class TileContentFragment extends Fragment {
+public class CoordinatorFragment12 extends Fragment {
+
+    private RecyclerView mRecyclerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,16 +48,20 @@ public class TileContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(
+        mRecyclerView = (RecyclerView) inflater.inflate(
                 R.layout.recycler_view, container, false);
-        ContentAdapter adapter = new ContentAdapter(recyclerView.getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
+        ContentAdapter adapter = new ContentAdapter(mRecyclerView.getContext());
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setHasFixedSize(true);
         // Set padding for Tiles
         int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
-        recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        return recyclerView;
+        mRecyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        return mRecyclerView;
+    }
+
+    public void goUp() {
+        mRecyclerView.scrollToPosition(0);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -69,8 +75,8 @@ public class TileContentFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, DetailActivity.class);
-                    intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
+                    Intent intent = new Intent(context, CoordinatorDetailActivity.class);
+                    intent.putExtra(CoordinatorDetailActivity.EXTRA_POSITION, getAdapterPosition());
                     context.startActivity(intent);
                 }
             });

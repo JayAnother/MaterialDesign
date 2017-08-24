@@ -1,4 +1,4 @@
-package org.jay.materialdesign.materialdesign;
+package org.jay.materialdesign.home;
 
 
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.jay.materialdesign.MainActivity;
 import org.jay.materialdesign.R;
 
 import butterknife.BindView;

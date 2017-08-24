@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".home.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,8 +29,10 @@
         </activity>
         <activity android:name=".materialdesign.animation.AnimationActivity3">
         </activity>
-        <activity android:name=".materialdesign.CoordinatorLayout.DetailActivity"/>
+        <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorDetailActivity"/>
         <activity android:name=".materialdesign.animation.AnimationActivity4">
+        </activity>
+        <activity android:name=".materialdesign.CoordinatorLayout.BehaviorActivity">
         </activity>
     </application>
 

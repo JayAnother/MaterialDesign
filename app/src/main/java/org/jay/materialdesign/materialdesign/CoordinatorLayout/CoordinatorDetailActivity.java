@@ -30,7 +30,7 @@ import org.jay.materialdesign.R;
 /**
  * Provides UI for the Detail page with Collapsing Toolbar.
  */
-public class DetailActivity extends AppCompatActivity {
+public class CoordinatorDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "position";
 

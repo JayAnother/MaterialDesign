@@ -1,4 +1,4 @@
-package org.jay.materialdesign;
+package org.jay.materialdesign.home;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,11 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import org.jay.materialdesign.R;
 import org.jay.materialdesign.contraintlayout.ConstraintFragment3;
-import org.jay.materialdesign.materialdesign.ComponentFragment;
-import org.jay.materialdesign.materialdesign.LayoutFragment;
-import org.jay.materialdesign.materialdesign.MotionFragment;
-import org.jay.materialdesign.materialdesign.StyleFragment;
+import org.jay.materialdesign.home.ComponentFragment;
+import org.jay.materialdesign.home.LayoutFragment;
+import org.jay.materialdesign.home.MotionFragment;
+import org.jay.materialdesign.home.StyleFragment;
 
 import java.util.List;
 
@@ -176,6 +177,7 @@ public class MainActivity extends AppCompatActivity
                 switchFragment(FRAGMENT_TAG_CONSTRAINST);
                 break;
         }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

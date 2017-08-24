@@ -1,4 +1,4 @@
-package org.jay.materialdesign.materialdesign;
+package org.jay.materialdesign.home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import org.jay.materialdesign.MainActivity;
 import org.jay.materialdesign.R;
+import org.jay.materialdesign.materialdesign.CoordinatorLayout.BehaviorActivity;
 import org.jay.materialdesign.materialdesign.CoordinatorLayout.CoordinatorActivity21;
 import org.jay.materialdesign.materialdesign.CoordinatorLayout.CoordinatorActivity22;
 
@@ -64,7 +64,7 @@ public class ComponentFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.btn01, R.id.btn02})
+    @OnClick({R.id.btn01, R.id.btn02, R.id.btn03})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn01:
@@ -73,6 +73,9 @@ public class ComponentFragment extends Fragment {
             case R.id.btn02:
                 startActivity(new Intent(getActivity(), CoordinatorActivity22.class));
 
+                break;
+            case R.id.btn03:
+                startActivity(new Intent(getActivity(), BehaviorActivity.class));
                 break;
         }
     }

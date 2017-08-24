@@ -40,4 +40,9 @@
         deserunt mollit anim id est laborum.
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
+
+
+    <!--behavior-->
+    <string name="scale_up_show_behavior">org.jay.materialdesign.materialdesign.CoordinatorLayout.behavior.ScaleUpShowBehavior</string>
+    <string name="avatar_image_behavior">org.jay.materialdesign.materialdesign.CoordinatorLayout.behavior.AvatarImageBehavior</string>
 </resources>

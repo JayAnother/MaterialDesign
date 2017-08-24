@@ -1,4 +1,4 @@
-package org.jay.materialdesign.materialdesign;
+package org.jay.materialdesign.home;
 
 
 import android.content.Context;
@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 
-import org.jay.materialdesign.MainActivity;
 import org.jay.materialdesign.R;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity1;
 import org.jay.materialdesign.materialdesign.animation.AnimationActivity2;
