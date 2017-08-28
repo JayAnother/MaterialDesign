@@ -13,10 +13,6 @@ import android.view.MenuItem;
 
 import org.jay.materialdesign.R;
 import org.jay.materialdesign.contraintlayout.ConstraintFragment3;
-import org.jay.materialdesign.home.ComponentFragment;
-import org.jay.materialdesign.home.LayoutFragment;
-import org.jay.materialdesign.home.MotionFragment;
-import org.jay.materialdesign.home.StyleFragment;
 
 import java.util.List;
 
@@ -43,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     public final static String FRAGMENT_TAG_STYLE = "StyleFragment";
     public final static String FRAGMENT_TAG_LAYOUT = "LayoutFragment";
     public final static String FRAGMENT_TAG_COMPONENT = "ComponentFragment";
-    public final static String FRAGMENT_TAG_CONSTRAINST = "ConstraintFragment";
+    public final static String FRAGMENT_TAG_CONSTRAINTS = "ConstraintFragment";
     private String mCurrentFragmentTag = "";
 
     @Override
@@ -63,18 +59,18 @@ public class MainActivity extends AppCompatActivity
         if (mMotionFragment != null && !FRAGMENT_TAG_MOTION.equals(mCurrentFragmentTag)) {
             fragmentTransaction.hide(mMotionFragment);
         }
-        if (mStyleFragment != null && !FRAGMENT_TAG_STYLE.equals(mCurrentFragmentTag)) {
-            fragmentTransaction.hide(mStyleFragment);
-        }
+//        if (mStyleFragment != null && !FRAGMENT_TAG_STYLE.equals(mCurrentFragmentTag)) {
+//            fragmentTransaction.hide(mStyleFragment);
+//        }
         if (mLayoutFragment != null && !FRAGMENT_TAG_LAYOUT.equals(mCurrentFragmentTag)) {
             fragmentTransaction.hide(mLayoutFragment);
         }
         if (mComponentFragment != null && !FRAGMENT_TAG_COMPONENT.equals(mCurrentFragmentTag)) {
             fragmentTransaction.hide(mComponentFragment);
         }
-        if (mConstraintFragment != null && !FRAGMENT_TAG_CONSTRAINST.equals(mCurrentFragmentTag)) {
-            fragmentTransaction.hide(mConstraintFragment);
-        }
+//        if (mConstraintFragment != null && !FRAGMENT_TAG_CONSTRAINTS.equals(mCurrentFragmentTag)) {
+//            fragmentTransaction.hide(mConstraintFragment);
+//        }
     }
 
     public void switchFragment(String fragmentTag) {
@@ -88,12 +84,12 @@ public class MainActivity extends AppCompatActivity
                 }
                 fragment = mMotionFragment;
                 break;
-            case FRAGMENT_TAG_STYLE:
-                if (mStyleFragment == null) {
-                    mStyleFragment = new StyleFragment();
-                }
-                fragment = mStyleFragment;
-                break;
+//            case FRAGMENT_TAG_STYLE:
+//                if (mStyleFragment == null) {
+//                    mStyleFragment = new StyleFragment();
+//                }
+//                fragment = mStyleFragment;
+//                break;
             case FRAGMENT_TAG_LAYOUT:
                 if (mLayoutFragment == null) {
                     mLayoutFragment = new LayoutFragment();
@@ -106,12 +102,12 @@ public class MainActivity extends AppCompatActivity
                 }
                 fragment = mComponentFragment;
                 break;
-            case FRAGMENT_TAG_CONSTRAINST:
-                if (mConstraintFragment == null) {
-                    mConstraintFragment = new ConstraintFragment3();
-                }
-                fragment = mConstraintFragment;
-                break;
+//            case FRAGMENT_TAG_CONSTRAINTS:
+//                if (mConstraintFragment == null) {
+//                    mConstraintFragment = new ConstraintFragment3();
+//                }
+//                fragment = mConstraintFragment;
+//                break;
         }
 //        //切换动画
 //        if (animType == AnimationUtil.TYPE_PAGE_IN) {
@@ -164,18 +160,18 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_motion:
                 switchFragment(FRAGMENT_TAG_MOTION);
                 break;
-            case R.id.nav_style:
-                switchFragment(FRAGMENT_TAG_STYLE);
-                break;
+//            case R.id.nav_style:
+//                switchFragment(FRAGMENT_TAG_STYLE);
+//                break;
             case R.id.nav_layout:
                 switchFragment(FRAGMENT_TAG_LAYOUT);
                 break;
             case R.id.nav_component:
                 switchFragment(FRAGMENT_TAG_COMPONENT);
                 break;
-            case R.id.nav_constraint:
-                switchFragment(FRAGMENT_TAG_CONSTRAINST);
-                break;
+//            case R.id.nav_constraint:
+//                switchFragment(FRAGMENT_TAG_CONSTRAINTS);
+//                break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

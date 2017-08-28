@@ -6,10 +6,10 @@
             android:id="@+id/nav_motion"
             android:icon="@drawable/ic_motion"
             android:title="Motion"/>
-        <item
-            android:id="@+id/nav_style"
-            android:icon="@drawable/ic_style"
-            android:title="Style"/>
+        <!--<item-->
+            <!--android:id="@+id/nav_style"-->
+            <!--android:icon="@drawable/ic_style"-->
+            <!--android:title="Style"/>-->
         <item
             android:id="@+id/nav_layout"
             android:icon="@drawable/ic_layout"
@@ -18,10 +18,10 @@
             android:id="@+id/nav_component"
             android:icon="@drawable/ic_component"
             android:title="Component"/>
-        <item
-            android:id="@+id/nav_constraint"
-            android:icon="@drawable/ic_constraint"
-            android:title="ConstraintLayout"/>
+        <!--<item-->
+            <!--android:id="@+id/nav_constraint"-->
+            <!--android:icon="@drawable/ic_constraint"-->
+            <!--android:title="ConstraintLayout"/>-->
     </group>
     <!--<item android:title="Other">-->
         <!--<menu>-->
