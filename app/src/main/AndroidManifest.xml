@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorActivity21">
         </activity>
-        <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorActivity22">
+        <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorActivity20">
         </activity>
         <activity android:name=".materialdesign.animation.AnimationActivity1">
         </activity>
@@ -33,6 +33,8 @@
         <activity android:name=".materialdesign.animation.AnimationActivity4">
         </activity>
         <activity android:name=".materialdesign.CoordinatorLayout.BehaviorActivity">
+        </activity>
+        <activity android:name=".materialdesign.CoordinatorLayout.CoordinatorActivity22">
         </activity>
     </application>
 

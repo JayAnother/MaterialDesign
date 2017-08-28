@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginRight="30dp"
         android:src="@drawable/animvectordrawable" />
 
     <CheckBox
@@ -21,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/avd"
-
         android:background="@null"
         android:button="@drawable/heartstateanim" />
 
@@ -41,9 +41,9 @@
         android:layout_centerVertical="true"
         android:clickable="true"
         android:src="@mipmap/ball2"
-        android:stateListAnimator="@anim/statechangeanim" />
+        android:stateListAnimator="@drawable/statechangeanim" />
 
-
+<!--Share element-->
     <Button
         android:id="@+id/p1"
         android:transitionName="p1"

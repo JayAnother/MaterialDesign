@@ -53,9 +53,8 @@ public class BehaviorActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initSwipeDismissBehavior();
 
-        mBottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.tab_layout));
-        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-
+        mBottomSheetBehavior = BottomSheetBehavior.from(mTabLayout);
+        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         createBottomSheetDialog();
     }
 
@@ -89,10 +88,12 @@ public class BehaviorActivity extends AppCompatActivity {
                     mBottomSheetDialog.dismiss();
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 }
+                Toast.makeText(BehaviorActivity.this, "state="+newState, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                Toast.makeText(BehaviorActivity.this, "slideOffset="+slideOffset, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -136,9 +137,12 @@ public class BehaviorActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_bottom_sheet_control:
-                if (mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+                int state = mBottomSheetBehavior.getState();
+                if (state == BottomSheetBehavior.STATE_EXPANDED) {
+                    mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                } else if(state == BottomSheetBehavior.STATE_COLLAPSED){
                     mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-                } else if (mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_HIDDEN) {
+                }else if(state == BottomSheetBehavior.STATE_HIDDEN){
                     mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 }
                 break;

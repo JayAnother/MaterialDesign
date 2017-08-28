@@ -45,4 +45,5 @@
     <!--behavior-->
     <string name="scale_up_show_behavior">org.jay.materialdesign.materialdesign.CoordinatorLayout.behavior.ScaleUpShowBehavior</string>
     <string name="avatar_image_behavior">org.jay.materialdesign.materialdesign.CoordinatorLayout.behavior.AvatarImageBehavior</string>
+    <string name="dependency_behavior">org.jay.materialdesign.materialdesign.CoordinatorLayout.behavior.DependencyBehavior</string>
 </resources>

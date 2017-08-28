@@ -19,4 +19,5 @@
                 android:valueType="floatType"/>
         </set>
     </item>
+
 </selector>

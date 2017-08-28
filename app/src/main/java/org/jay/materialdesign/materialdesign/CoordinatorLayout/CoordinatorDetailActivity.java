@@ -48,19 +48,22 @@ public class CoordinatorDetailActivity extends AppCompatActivity {
     CheckBox mCb03;
     @BindView(R.id.cb04)
     CheckBox mCb04;
+    @BindView(R.id.image)
+    ImageView mImage;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
     private CollapsingToolbarLayout mCollapsingToolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setStatusBarColor(Color.parseColor("#00000000"));
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set Collapsing Toolbar layout to the screen
         mCollapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        // Set title of Detail page
-        // collapsingToolbar.setTitle(getString(R.string.item_title));
         int postion = getIntent().getIntExtra(EXTRA_POSITION, 0);
         Resources resources = getResources();
         String[] places = resources.getStringArray(R.array.places);
@@ -87,7 +90,7 @@ public class CoordinatorDetailActivity extends AppCompatActivity {
         mCb01.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     mCollapsingToolbar.setTitle("Title");
                 }
             }
@@ -95,7 +98,7 @@ public class CoordinatorDetailActivity extends AppCompatActivity {
         mCb02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     mCollapsingToolbar.setContentScrimColor(Color.RED);
 
                 }
@@ -104,7 +107,7 @@ public class CoordinatorDetailActivity extends AppCompatActivity {
         mCb03.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     mCollapsingToolbar.setStatusBarScrimColor(Color.YELLOW);
 
                 }
@@ -113,7 +116,7 @@ public class CoordinatorDetailActivity extends AppCompatActivity {
         mCb04.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     mCollapsingToolbar.setCollapsedTitleTextColor(Color.GREEN);
                 }
             }

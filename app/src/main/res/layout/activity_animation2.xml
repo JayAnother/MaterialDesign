@@ -25,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn"
-
         android:background="?android:attr/selectableItemBackground"
         android:text="selectableItemBackground" />
 
@@ -34,9 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/p3"
-
         android:background="?android:attr/selectableItemBackgroundBorderless"
-
         android:text="selectableItemBackgroundBorderless" />
 
     <Button

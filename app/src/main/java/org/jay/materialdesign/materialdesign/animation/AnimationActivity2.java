@@ -27,7 +27,7 @@ import butterknife.OnClick;
 
 public class AnimationActivity2 extends AppCompatActivity {
 
-    public static final int DURATION = 6000;
+    public static final int DURATION = 3000;
     @BindView(R.id.btn)
     Button mBtn;
     @BindView(R.id.p3)

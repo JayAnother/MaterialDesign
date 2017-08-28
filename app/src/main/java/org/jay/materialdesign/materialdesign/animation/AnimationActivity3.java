@@ -1,6 +1,7 @@
 package org.jay.materialdesign.materialdesign.animation;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.graphics.Path;
@@ -30,7 +31,7 @@ import butterknife.OnClick;
 
 public class AnimationActivity3 extends AppCompatActivity {
 
-    public static final int DURATION = 6000;
+    public static final int DURATION = 3000;
     @BindView(R.id.avd)
     ImageView mAvd;
     @BindView(R.id.heart)
@@ -58,13 +59,14 @@ public class AnimationActivity3 extends AppCompatActivity {
         getWindow().setReturnTransition(new Slide().setDuration(DURATION));
         getWindow().setReenterTransition(new Slide().setDuration(DURATION));
         getWindow().setSharedElementEnterTransition(new ChangeBounds().setInterpolator(new BounceInterpolator()).setDuration(DURATION));
-
+        getWindow().setSharedElementsUseOverlay(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation3);
         ButterKnife.bind(this);
 
         RectF bounds = new RectF(0, 200, 600, 800);
         sTraversalPath.addArc(bounds,180,-180);
+
     }
 
     @OnClick({R.id.avd,R.id.p1, R.id.p2, R.id.p3, R.id.p4})
@@ -73,9 +75,32 @@ public class AnimationActivity3 extends AppCompatActivity {
         PropertyValuesHolder x,y;
         switch (view.getId()) {
             case R.id.p1:
-                animator=   ObjectAnimator.ofFloat(ball, View.X, View.Y, sTraversalPath).setDuration(6000);
-                animator.setInterpolator(new PathInterpolator(0.4f,0,0.2f,1));
-                animator.start();
+                Path path = new Path();
+                path.lineTo(0,300);
+                path.cubicTo(100, 0, 300, 900, 500, 600);
+
+                PathInterpolator pathInterpolator = new PathInterpolator(0.8f, 0f, 1f, 1f);
+                final ObjectAnimator mAnimator = ObjectAnimator.ofFloat(ball, View.X, View.Y, path);
+                mAnimator.setInterpolator(pathInterpolator);
+                mAnimator.setDuration(3000);
+                mAnimator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                    }
+                });
+                mAnimator.start();
+
+//                Path path = new Path();
+//                path.cubicTo(0.2f, 0f, 0.1f, 1f, 0.5f, 1f);
+//                path.lineTo(1f, 1f);
+//                ObjectAnimator animator2 = ObjectAnimator.ofFloat(ball, View.TRANSLATION_X, 500);
+//                animator2.setInterpolator(PathInterpolatorCompat.create(path));
+//                animator2.start();
+
+//                animator=ObjectAnimator.ofFloat(ball, View.X, View.Y, sTraversalPath).setDuration(6000);
+//                animator.setInterpolator(new PathInterpolator(0.4f,0,0.2f,1));
+//                animator.start();
                 break;
             case R.id.p2:
                 animatorX=  ObjectAnimator.ofFloat(ball, "x", 0, 600).setDuration(6000);

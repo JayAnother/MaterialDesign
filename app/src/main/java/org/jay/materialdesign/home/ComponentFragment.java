@@ -72,7 +72,6 @@ public class ComponentFragment extends Fragment {
                 break;
             case R.id.btn02:
                 startActivity(new Intent(getActivity(), CoordinatorActivity22.class));
-
                 break;
             case R.id.btn03:
                 startActivity(new Intent(getActivity(), BehaviorActivity.class));

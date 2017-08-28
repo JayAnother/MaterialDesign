@@ -2,24 +2,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- provide a different drawable for each state-->
-    <item android:id="@+id/checked" android:drawable="@mipmap/ic_launcher"
+    <item
+        android:id="@+id/checked"
+        android:drawable="@mipmap/ic_launcher_round"
         android:state_checked="true"/>
 
-    <item android:id="@+id/unchecked"
+    <item
+        android:id="@+id/unchecked"
         android:drawable="@mipmap/ic_launcher"/>
     <!-- specify a transition -->
-    <transition android:fromId="@id/unchecked"
+    <transition
+        android:fromId="@id/unchecked"
 
         android:toId="@id/checked">
-
+        <!--不支持属性动画 只支持帧动画或者向量动画-->
         <animation-list>
-            <item android:duration="500" android:drawable="@mipmap/ic_launcher"/>
-            <item android:duration="500" android:drawable="@mipmap/f0"/>
-            <item android:duration="500" android:drawable="@mipmap/f1"/>
-            <item android:duration="500" android:drawable="@mipmap/f2"/>
-            <item android:duration="500" android:drawable="@mipmap/f3"/>
-            <item android:duration="500" android:drawable="@mipmap/f4"/>
-            <item android:duration="500" android:drawable="@mipmap/ic_launcher"/>
+            <item
+                android:drawable="@mipmap/ic_launcher_round"
+                android:duration="500"/>
+            <item
+                android:drawable="@mipmap/f0"
+                android:duration="500"/>
+            <item
+                android:drawable="@mipmap/f1"
+                android:duration="500"/>
+            <item
+                android:drawable="@mipmap/f2"
+                android:duration="500"/>
+            <item
+                android:drawable="@mipmap/f3"
+                android:duration="500"/>
+            <item
+                android:drawable="@mipmap/f4"
+                android:duration="500"/>
+            <item
+                android:drawable="@mipmap/ic_launcher"
+                android:duration="500"/>
 
         </animation-list>
 
