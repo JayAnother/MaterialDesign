@@ -61,7 +61,7 @@ AnimationInflater.loadStateListAnimator()
 View.setStateListAnimator()
 
 #### Use:
-![](images/code_state1.png)
+![](images/code_state.png)
 
 
 AnimatedStateListDrawable
