@@ -85,7 +85,8 @@ AnimatedVectorDrawable矢量图动画
 用<objectAnimator>元素，在res/anim/
   
 #### Use:
-![](images/code_vector1.png)
+![](images/code_vector.png)
+
 ![](images/code_vector2.png)
 
 ### Screenshot
